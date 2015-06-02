@@ -21,7 +21,7 @@ $(document).on("keyup", function(event) {
 		
 		var result = wordsTypes.join("");
 
-		if (result === "CHIRP") {
+		if (result === "C") {
 			$("#chirp-wrapper").slideDown(function() {
 				$("#chirp-text").focus();
 			});
@@ -33,9 +33,17 @@ $(document).on("keyup", function(event) {
 	}
 });
 
+$('.img-responsive').on('click', function(e){
+	//
+	$('.image').val($(this).attr('src'));
+	$('.img-selected').attr('src',$(this).attr('src'));
+});
+
+
 $(document).on("click", "#cancel-chirp-button", function() {
 	$("#chirp-wrapper").slideUp(function() {
-		$("#chirp-text").val("");
+		$(".form-image-append").val("");
+
 	});
 });
 

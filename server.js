@@ -38,6 +38,7 @@ app.get('/edit/:id', function(req,res){
 });
 
 app.post('/add', function(req,res){
+   console.log("message is: ", req.body);
    models.Chirp.create({
       message: req.body.message
    }).done(function(){
@@ -47,7 +48,6 @@ app.post('/add', function(req,res){
 
 app.put('/edit/:id', function(req,res){
    models.Chirp.findById(req.params.id).done(function(message){
-      console.log("getting here");
       message.updateAttributes({
          message:req.body.message
       }).done(function(){
