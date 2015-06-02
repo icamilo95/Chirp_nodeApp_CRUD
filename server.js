@@ -19,14 +19,10 @@ app.use(methodOverride("_method"));
 
 
 app.get('/', function(req,res){
-   var lastChirpOder = [];
    models.Chirp.findAll({order:[['createdAt']]}).done(function(messages, error){
-// for (var i = 0; i < messages.length; i++) {
-//    lastChirpOder.push(messages.pop());
-// }
-      console.log("messages: " , lastChirpOder);
+      var lastChirpOder = messages.reverse();
       res.render("index", {
-         allMessages: messages
+         allMessages: lastChirpOder
       });
    });
 });
