@@ -19,7 +19,12 @@ app.use(methodOverride("_method"));
 
 
 app.get('/', function(req,res){
-   models.Chirp.findAll().done(function(messages, error){
+   var lastChirpOder = [];
+   models.Chirp.findAll({order:[['createdAt']]}).done(function(messages, error){
+// for (var i = 0; i < messages.length; i++) {
+//    lastChirpOder.push(messages.pop());
+// }
+      console.log("messages: " , lastChirpOder);
       res.render("index", {
          allMessages: messages
       });
@@ -55,7 +60,13 @@ app.put('/edit/:id', function(req,res){
    });
 });
 
-
+app.delete('/edit/:id', function(req,res){
+   models.Chirp.findById(req.params.id).done(function(message){
+      message.destroy().done(function(){
+         res.redirect('/');
+      });
+   });
+});
 
 
 
