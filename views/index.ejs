@@ -23,7 +23,7 @@
 
 <div class="container margin-top-20 ">
 	<div class="instruction border-radius-10">
-		Type "Shift + chirp" to add new Chirp!
+		Type "Shift + c" to add new Chirp!
 	</div>
 </div>
 
@@ -31,14 +31,14 @@
 	<div id="chirp-wrapper" class="border-radius-10">
 		<form action="/add" method="post">
 			<div>
-				<textarea id="chirp-text" name="message" class="form-control" placeholder="You can chirp here. Make sure it's less than 140 characters!"></textarea>
+				<textarea id="chirp-text" name="message" class="form-control" placeholder="You can chirp here. Make sure it's less than 140 characters!" maxlength="140"></textarea>
 				<input type="text" placeholder="text" class="image margin-top-10" name="image" >
 				<div class="col-sm-1 margin-top-10">
-					<img src="img/birds/bird1.png" class="img-responsive img-selected" />
+					<img src="" class="img-responsive img-selected" />
 				</div>	
 			</div>
 			<div class="row form-image-append">
-			<hr><hr>
+			<hr><hr><hr>
 				<p class="avatar-message">Select avatar</p>
 				<div class="col-sm-1">
 					<img src="img/birds/bird1.png" class="img-responsive" />
@@ -87,22 +87,6 @@
 		<div class="row">
 			<div class="col-sm-2">
 				<img src="img/birds/bird4.png" class="img-responsive" />
-			</div>
-			<div class="col-sm-10">
-				<div class="margin-top-20">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini.
-				</div>
-				<div class="margin-top-10 txt-right">
-					<a href="#" class="btn btn-primary">Edit Chirp</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="one-chirp border-radius-10">
-		<div class="row">
-			<div class="col-sm-2">
-				<img src="img/birds/bird1.png" class="img-responsive" />
 			</div>
 			<div class="col-sm-10">
 				<div class="margin-top-20">
