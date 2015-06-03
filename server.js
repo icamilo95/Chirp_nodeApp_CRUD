@@ -3,6 +3,14 @@ var app = express();
 //Set up PG and models sequelize
 var pg = require("pg"); //It requires the postgresmodel
 var models = require("./models/index.js"); 
+
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM "Chirps"');
+
+  query.on('row', function(row) {
+    console.log("Cami", JSON.stringify(row));
+  });
+});
 // var request = require("request");
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
