@@ -29,15 +29,17 @@
 			</div>
 			<div class="col-sm-11">
 				<div class="margin-top-10">
-				<form method="post" action="/edit/<%= chirpMessage.id %>?_method=put" >
-					<textarea class="form-control" name="message"><%= chirpMessage.message %></textarea>
-						
+					<form method="post" action="/edit/<%= chirpMessage.id %>?_method=put" >
+						<textarea class="form-control" name="message"><%= chirpMessage.message %></textarea>
+						<div class="col-sm-2">
+						<button type="submit" class="btn btn-primary margin-top-10">Edit Chirp</button>
+					</form>
+						</div>	
 				</div>
+					
 				<div class="margin-top-10 txt-right">
-				<button type="submit" class="btn btn-primary">Edit Chirp</button>
-				</form>
-				<form method="post" action="/edit/<%= chirpMessage.id %>?_method=delete" >				<button class="btn btn-danger">Delete Chirp</button>
-				</form>
+					<form method="post" action="/edit/<%= chirpMessage.id %>?_method=delete" >				<button class="btn btn-danger">Delete Chirp</button>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -33,8 +33,6 @@ $(document).on("keyup", function(event) {
 	}
 });
 
-var a = $('.message').text();
-console.log("a: ", a);
 
 $('.img-responsive').on('click', function(e){
 	$('.image').val($(this).attr('src'));
