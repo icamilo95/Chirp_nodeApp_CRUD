@@ -21,6 +21,7 @@ app.use(methodOverride("_method"));
 app.get('/', function(req,res){
    models.Chirp.findAll({order:[['createdAt']]}).done(function(messages, error){
       var lastChirpOder = messages.reverse();
+      console.log("all Messages: ", lastChirpOder);
       res.render("index", {
          allMessages: lastChirpOder
       });
@@ -38,9 +39,10 @@ app.get('/edit/:id', function(req,res){
 });
 
 app.post('/add', function(req,res){
-   console.log("message is: ", req.body);
+   console.log("message is: ", req.body.image);
    models.Chirp.create({
-      message: req.body.message
+      message: req.body.message,
+      avatar: req.body.image
    }).done(function(){
       res.redirect("/");
    });
