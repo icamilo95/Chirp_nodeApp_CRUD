@@ -11,7 +11,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
     console.log("Cami", JSON.stringify(row));
   });
 });
-// var request = require("request");
+
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
     extended:true
