@@ -4,13 +4,32 @@ var app = express();
 var pg = require("pg"); //It requires the postgresmodel
 var models = require("./models/index.js"); 
 
-// pg.connect(process.env.DATABASE_URL, function(err, client) {
-//   var query = client.query('SELECT * FROM Chirps');
+//It requires the postgresmodel
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM test_table', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.render('pages/db', {results: result.rows} ); }
+    });
+  });
+});
 
-//   query.on('row', function(row) {
-//     console.log("Cami", JSON.stringify(row));
-//   });
-// });
+//----
+
+var migrate = require('migrate');
+var set = migrate.load('migration/.migrate', 'migration');
+
+set.up(function (err) {
+  if (err) throw err;
+
+  console.log('Migration completed');
+});
+
+//----
+
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
